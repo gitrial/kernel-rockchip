@@ -931,6 +931,8 @@ static int rga_remove(struct platform_device *pdev)
 	v4l2_device_unregister(&rga->v4l2_dev);
 
 	pm_runtime_disable(rga->dev);
+
+	return 0;
 }
 
 static int __maybe_unused rga_runtime_suspend(struct device *dev)
