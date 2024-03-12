@@ -917,7 +917,7 @@ err_put_clk:
 	return ret;
 }
 
-static void rga_remove(struct platform_device *pdev)
+static int rga_remove(struct platform_device *pdev)
 {
 	struct rockchip_rga *rga = platform_get_drvdata(pdev);
 
