@@ -8,7 +8,8 @@
 #include "rk3588-nanopi6-rev01.dts"
 
 / {
-	model = "FriendlyElec NanoPC-T6 LTS";
+	/*model = "FriendlyElec NanoPC-T6 LTS";
+	model = "YovitaCore";
 	compatible = "friendlyelec,nanopc-t6", "rockchip,rk3588";
 
 	vcc5v0_host_20: vcc5v0-host-20 {
