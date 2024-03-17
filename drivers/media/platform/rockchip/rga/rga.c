@@ -917,7 +917,7 @@ err_put_clk:
 	return ret;
 }
 
-static void rga_remove(struct platform_device *pdev)
+static int rga_remove(struct platform_device *pdev)
 {
 	struct rockchip_rga *rga = platform_get_drvdata(pdev);
 
@@ -931,6 +931,8 @@ static void rga_remove(struct platform_device *pdev)
 	v4l2_device_unregister(&rga->v4l2_dev);
 
 	pm_runtime_disable(rga->dev);
+
+	return 0;
 }
 
 static int __maybe_unused rga_runtime_suspend(struct device *dev)
@@ -968,7 +970,7 @@ MODULE_DEVICE_TABLE(of, rockchip_rga_match);
 
 static struct platform_driver rga_pdrv = {
 	.probe = rga_probe,
-	.remove_new = rga_remove,
+	.remove = rga_remove,
 	.driver = {
 		.name = RGA_NAME,
 		.pm = &rga_pm,
